@@ -3,13 +3,14 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
+    --hue-color: 242;
 
     /* HSL Color Mode */
-    --skin-color: #00aac1;
-    --text-color: #783d52;
-    --title-color: #7e3837;
-    --box-color: #91e7f2;
-    --body-color: #ffffff;
+    --skin-color: hsl(180, 100%, 50%);
+    --title-color: white;
+    --text-color: hsl(var(--hue-color), 8%, 85%);
+    --body-color: hsl(var(--hue-color), 19%, 5%);
+    --box-color: hsl(var(--hue-color), 14%, 10%);
 
     /*===== Font and Typography =====*/
     --body-font: 'Poppins', sans-serif;
@@ -75,7 +76,7 @@ input {
 }
 
 body {
-    background-color: var(--body-color);
+    background-color: var(--box-color);
     color: var(--text-color);
 
 }
@@ -119,50 +120,21 @@ input {
     display: grid;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
-.section {
-    padding: 6.5rem 0 2rem;
-}
-
-.section__title {
-    font-size: var(--h1-font-size);
-    text-align: center;
-    margin-bottom: var(--mb-3);
-}
-
-.section__title::before {
-    content: attr(data-heading);
-    display: block;
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-    color: var(--skin-color);
-}
-
-/* Active Modal*/
-.active-modal {
-    opacity: 1;
-    visibility: visible;
-}
-
-a {
-  text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-}
-
-
-
 /*===== method Section =====*/
 
 .method__title {
+    font-size: var(--h1-font-size);
     text-align: center;
-    margin-top: var(--mb-1);
+    margin-top: var(--mb-3);
     margin-bottom: var(--mb-0-25);
+    color: var(--skin-color);
 }
 
 .method__describe-title {
+    font-size: var(--small-font-size);
     text-align: center;
     margin-bottom: var(--mb-0-3);
+    color: white;
 }
 
 .method__display-container {
@@ -170,31 +142,42 @@ a {
 }
 
 .method__subtitle {
+    font-size: var(--h2-font-size);
     color: var(--title-color);
     text-align: left;
     margin-top: var(--mb-1-5);
-    margin-bottom: var(--mb-0-75);
+    margin-bottom: var(--mb-0-25);
+}
+
+.heading {
+    font-size: var(--smaller-font-size);
+    margin-bottom: var(--mb-2);
+    margin-top: 0;
 }
 
 
 .method__passage-content {
+    background-color: var(--body-color);
     color: var(--text-color);
-    background-color: #e3e3e3;
     font-size: var(--normal-font-size);
     align-items: left;
     border-style: solid;
     border-color: var(--title-color);
     padding:30px 10px 30px 10px;
 }
+.after {
+    font-size: var(--small-font-size);
+}
 
 .method__button {
+    font-size: var(--normal-font-size);
     float: right;
     margin-top: var(--mb-3);
-    color: var(--text-color);
-    background-color: var(--box-color);
-    padding:15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     margin-bottom: 20px;
     cursor: pointer;
+    color: var(--skin-color);
+    border-radius: 1rem;
 }
 
 dt {
