@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table Question Set One</title>
+        <!--========== MAIN CSS ==========-->
+        <link rel="stylesheet" href="../method_style.css">
+    </head>
+
+    <body>
+        <h1 class="method__title">Tabular Method</h1>
+        <p class="method__describe-title">Know how putting the important points in a tabular method helps with memorising.</p>
+
+        <div class="method__display-container">
+            <h2 class="method__subtitle">Question Set One</h2>
+
+            <p style="margin-bottom:30px">Try to use the exact wording from the passage if possible.</p>
+
+            <div class="question">
+                <label for="q1">1. What are the two main characters' names?</label>
+                <input type="text" id="q1" name="q1">
+            </div>
+
+            <div class="question">
+                <label for="q2">2. Are they married?</label>
+                <input type="text" id="q2" name="q2">
+            </div>
+
+            <div class="question">
+                <label for="q3">3. What does Mary work as?</label>
+                <input type="text" id="q3" name="q3">
+            </div>
+
+            <div class="question">
+                <label for="q4">4. How many children do Mary and John have?</label>
+                <input type="text" id="q4" name="q4">
+            </div>
+
+            <div class="question">
+                <label for="q5">5. Who likes to sing?</label>
+                <input type="text" id="q5" name="q5">
+            </div>
+
+            <div class="question">
+                <label for="q6">6. What does Mary like to do, other than painting?</label>
+                <input type="text" id="q6" name="q6">
+            </div>
+
+            <div class="question">
+                <label for="q7">7. What is their family hobby?</label>
+               <input type="text" id="q7" name="q7">
+            </div>
+
+            <div class="question">
+                <label for="q8">8. Who does John teach at the community centre?</label>
+                <input type="text" id="q8" name="q8">
+            </div>
+
+            <div class="question">
+                <label for="q9">9. What does Mary teach at the community centre?</label>
+                <input type="text" id="q9" name="q9">
+            </div>
+
+            <div class="question">
+                <label for="q10">10. How would you describe Mary and John's life together?</label>
+                <input type="text" id="q10" name="q10">
+            </div>
+
+            <button onclick="checkAnswers()">Submit</button>
+
+            <p class="instruction">Click "Learn" to try memorising using the Tabular method.</p>
+
+            <script>
+                function checkAnswers() {
+                    var answers = {
+                        q1: ["mary and john", "john and mary"],
+                        q2: ["yes"],
+                        q3: ["primary school teacher", "teacher"],
+                        q4: ["2", "two"],
+                        q5: ["john"],
+                        q6: ["reading", "read"],
+                        q7: ["travel", "travelling"],
+                        q8: ["elderly people", "old people"],
+                        q9: ["art"],
+                        q10: ["happy", "well-rounded", "well rounded"]
+                    };
+    
+                    var score = 0;
+    
+                    for (var i = 1; i <= 10; i++) {
+                        var userAnswer = document.getElementById("q" + i).value.toLowerCase();
+                        var expectedKeywords = answers["q" + i];
+    
+                        var isCorrect = expectedKeywords.some(function(keyword) {
+                            return userAnswer.includes(keyword);
+                        });
+    
+                        var feedback = isCorrect ? "Correct!" : "Expected keyword(s): " + expectedKeywords.join(", ");
+    
+                        var answerElement = document.getElementById("q" + i);
+                        answerElement.classList.remove("correct-answer", "wrong-answer");
+                        answerElement.classList.add(isCorrect ? "correct-answer" : "wrong-answer");
+    
+                        var feedbackElement = document.createElement("span");
+                        feedbackElement.textContent = feedback;
+                        feedbackElement.classList.add("keyword");
+    
+                        answerElement.parentNode.appendChild(feedbackElement);
+    
+                        if (isCorrect) {
+                            score++;
+                        }
+                    }
+    
+                    var scoreElement = document.createElement("p");
+                    scoreElement.textContent = "Score: " + score + "/10";
+                    scoreElement.style.fontWeight = "bold";
+                    scoreElement.style.marginLeft = "50px";
+                    document.body.appendChild(scoreElement);
+                }
+            </script>
+
+            <a href="learn_tabular_method.html" class="method__button">Learn</a>
+            <!-- <button class="method__button" id="nextButton">Next</button> -->
+
+        </div>
+
+
+    </body>
+</html>

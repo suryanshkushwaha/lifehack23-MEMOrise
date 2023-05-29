@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leach_tabular_method</title>
+    <!--========== MAIN CSS ==========-->
+    <link rel="stylesheet" href="../method_style.css">
+  </head>
+ 
+  <body>
+    <h1 class="method__title">Tabular Method</h1>
+    <p class="method__describe-title">Know how putting the important points in a tabular method helps with memorising.</p>
+    
+    <div class="method__display-container">
+      <h2 class="method__subtitle">Passage</h2>
+      <p class="method__passage-content">
+      Mary and John are a married couple who lead active and fulfilling lives. Mary works as a teacher at a primary school, while John is a software engineer. They have two children, Sally and Rudd. In their free time, Mary enjoys painting and reading, while John is passionate about singing and soccer. As a family, they love travelling and exploring new places. They have visited several countries, including New Zealand, France, and South Korea. They also enjoy volunteering at their community centre, where Mary conducts art classes for children, and John conducts computer literacy programs for the elderly. Overall, Mary and John have a happy and well-rounded life together.
+      </p>
+
+      <h2 class="method__subtitle">Table</h2>
+      <p>Refer to the table below, we can learn the information in this passage effectively.</p>
+      <img src="passageC_table.JPG" width="40%" alt="table passage c"/>
+
+
+      <h2 class="method__subtitle">Why This Method Works</h2>
+      <dl>
+        <dt>Clear Structure: </dt>
+        <dd>- Tables provide a clear and organised structure that allows you to compartmentalise and categorise information. The visual arrangement of rows and columns helps create a systematic layout, making it easier to locate and recall specific details in our mental map which leverages on spatial memory.</dd> 
+        <dt>Highlighting Differences: </dt>
+        <dd>- Tables enable you to compare and contrast different elements side by side, highlighting similarities and differences. This enhances your ability to identify unique characteristics or specific details within the information. By visually emphasising distinctions, you create additional memory cues that can aid in recall.</dd>  
+        <dt>Chunking Information: </dt>
+        <dd>- Chunking involves grouping related pieces of information together, which makes it easier to remember and process. Each cell in the table can represent a separate chunk of information, and the overall structure of the table facilitates the organisation of these chunks.</dd>  
+      </dl>
+
+      <h2 class="method__subtitle">Tips to Implement This Method</h2>
+      <p>Categorise common points of analysis (such as hobby) that are either similar or different across the different aspects which is the character in this case.</p>
+
+      <p style="margin-top: 30px;">Click next to take a 10 minute break and come back to answer a few more questions to test your memory!</p>
+      <div id="overlay">
+        <div id="timer"></div>
+      </div>
+      <button class="method__button" id="nextButton">10mins Timer</button>
+      <!-- <a href="table_question_two.html" class="method__button">Question Set 2</a> -->
+    </div>
+            
+    <script>
+        document.getElementById("nextButton").addEventListener("click", function() {
+            var minutes = 10;
+            var seconds = minutes * 60;
+            
+            // Show the overlay screen
+            document.getElementById("overlay").style.display = "flex";
+            
+            var countdown = setInterval(function() {
+                var minutesDisplay = Math.floor(seconds / 60);
+                var secondsDisplay = seconds % 60;
+            
+                // Display the remaining time to the user
+                document.getElementById("timer").textContent = minutesDisplay + ":" + (secondsDisplay < 10 ? "0" : "") + secondsDisplay;
+            
+                if (seconds == 0) {
+                    // Timer has ended, perform any necessary actions here
+                    clearInterval(countdown);
+                    alert("Time's up!");
+                    // Hide the overlay screen
+                    document.getElementById("overlay").style.display = "none";
+                }
+                seconds--;
+            }, 1000);
+        });
+    </script>
+    
+    
+
+  </body>
+</html>
