@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Highlighter Method</title>
+    <!--========== MAIN CSS ==========-->
+    <link rel="stylesheet" href="../method_style.css" />
+  </head>
+
+  <body>
+    <h1 class="method__title">Highlighter Method</h1>
+    <p class="method__describe-title">
+      Know how putting the important points in a tabular method helps with
+      memorising.
+    </p>
+
+    <div class="method__display-container">
+      <h2 class="method__subtitle">Passage</h2>
+      <p class="method__passage-content">
+        Mary and John are very good friends in college. Mary is studying to
+        become a marine ecologist while John is studying meteorology. They met
+        in common classes such as "climate change as pre-mass extinction" and
+        "the ethics of conservation". They enjoy spending their time hiking,
+        John likes to climb mountains. They volunteer regularly. While John does
+        monthly cleanups at an animal shelter, Mary volunteers weekly at an old folks
+        home curating plants for the elderly. When they graduate, John wants to
+        climb mount-everest while Mary wants to spend time studying corals and
+        how farmers can utilise modern technology to improve the sustainability
+        of coral-farming.
+      </p>
+
+      <h2 class="method__subtitle">Highlighted Passage</h2>
+      <p>
+        Refer to the highlighted passage below, we can learn the information in
+        this passage effectively.
+      </p>
+      <p>
+        <mark>Mary and John</mark> are very good <mark>friends</mark> in
+        college. Mary is studying to become a
+        <mark>marine ecologist</mark> while John is studying
+        <mark>meteorology</mark>. They met in common classes such as
+        <mark>"climate change as pre-mass extinction"</mark> and
+        <mark>"the ethics of conservation"</mark>. They enjoy spending their
+        time <mark>hiking</mark>, John likes to <mark>climb mountains</mark>.
+        They <mark>volunteer regularly</mark>. While John does <mark>monthly</mark>
+        <mark>cleanups at an animal shelter</mark>, Mary volunteers <mark>weekly</mark> at an
+        <mark>elderly home curating plants</mark> for the elderly. When they
+        graduate, John wants to <mark>climb mount-everest</mark> while Mary
+        wants to spend time <mark>studying corals</mark> and how farmers can
+        utilise modern technology to
+        <mark>improve the sustainability of coral-farming</mark>.
+      </p>
+      <h2 class="method__subtitle">Why This Method Works</h2>
+      <dl>
+        <dt>Visual Distinction:</dt>
+        <dd>
+          - Highlighting important or key words/phrases in a text creates a
+          visual distinction that draws attention. When studying or reviewing
+          the material, the highlighted text stands out, making it easier to
+          recognize and remember the crucial information.
+        </dd>
+        <dt>Focus and Organization:</dt>
+        <dd>
+          - By selectively highlighting specific words or phrases, you can
+          emphasize the most relevant information within a text. This process
+          helps you focus on the essential concepts and creates a visual
+          organization that aids in understanding and memorization.
+        </dd>
+        <dt>Retrieval Practice:</dt>
+        <dd>
+          - The act of highlighting involves active engagement with the
+          material. When you read through the text and decide which parts to
+          highlight, you are actively processing and evaluating the information.
+          This process of retrieval practice strengthens memory recall and
+          retention.
+        </dd>
+      </dl>
+
+      <h2 class="method__subtitle">Tips to Implement This Method</h2>
+      <p>
+        Main Ideas: Highlight the main ideas or central concepts of the text.
+        These are the key takeaways or overarching themes that the author is
+        conveying. <br /><hr>
+        Supporting Details: Highlight supporting details that provide evidence,
+        examples, or explanations for the main ideas. These details help
+        reinforce and illustrate the main points. <br /><hr>
+        Definitions and Terminology: Highlight important definitions, technical
+        terms, or vocabulary that are critical to understanding the subject
+        matter. <br /><hr>
+        Key Phrases or Keywords: Highlight specific phrases or keywords that
+        encapsulate important information or serve as cues for recall. <br /><hr>
+        Headings or Subheadings: If applicable, highlight headings or
+        subheadings that provide a structural outline of the content. These can
+        help in organizing the information mentally.
+      </p>
+
+      <p style="margin-top: 30px;">
+        Click "Next" to take a 10 minute break and come back to answer a few
+        more questions to test your memory!
+      </p>
+      <div id="overlay">
+        <div id="timer"></div>
+      </div>
+      <a href="#" class="method__button" id="nextButton">Next</a>
+
+      <!-- <button class="method__button" id="nextButton">10mins Timer</button> -->
+    </div>
+
+    <script>
+      document
+        .getElementById("nextButton")
+        .addEventListener("click", function () {
+          var minutes = 0;
+          var seconds = minutes * 60;
+
+          // Show the overlay screen
+          document.getElementById("overlay").style.display = "flex";
+
+          var countdown = setInterval(function () {
+            var minutesDisplay = Math.floor(seconds / 60);
+            var secondsDisplay = seconds % 60;
+
+            // Display the remaining time to the user
+            document.getElementById("timer").textContent =
+              minutesDisplay +
+              ":" +
+              (secondsDisplay < 10 ? "0" : "") +
+              secondsDisplay;
+
+            if (seconds == 0) {
+              // Timer has ended, perform any necessary actions here
+              clearInterval(countdown);
+              alert("Time's up!");
+              // Hide the overlay screen
+              document.getElementById("overlay").style.display = "none";
+
+              window.location.href = "highlighter_question_two.html";
+            }
+            seconds--;
+          }, 1000);
+        });
+    </script>
+  </body>
+</html>
