@@ -76,7 +76,7 @@ input {
 }
 
 body {
-    background-color: var(--box-color);
+    background-color: var(--body-color);
     color: var(--text-color);
 
 }
@@ -157,13 +157,13 @@ input {
 
 
 .method__passage-content {
-    background-color: var(--body-color);
+    background-color: var(--box-color);
     color: var(--text-color);
     font-size: var(--normal-font-size);
     align-items: left;
-    border-style: solid;
-    border-color: var(--title-color);
     padding:30px 10px 30px 10px;
+    border-style: dotted;
+    border-width: 0.1rem;
 }
 .after {
     font-size: var(--small-font-size);
