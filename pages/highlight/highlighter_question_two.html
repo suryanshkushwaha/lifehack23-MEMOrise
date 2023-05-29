@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highlighter Question Set Two</title>
+    <!--========== MAIN CSS ==========-->
+    <link rel="stylesheet" href="../method_style.css" />
+  </head>
+
+  <body>
+    <h1 class="method__title">Highlighter Method</h1>
+    <p class="method__describe-title">
+      Know how putting the important points in a tabular method helps with
+      memorising.
+    </p>
+
+    <div class="method__display-container">
+      <h2 class="method__subtitle">Question Set Two</h2>
+
+      <p style="margin-bottom: 30px;">
+        Try to use the exact wording from the passage if possible.
+      </p>
+
+      <div class="question">
+        <label for="q1">1. Where did Mary and John meet?</label>
+        <input type="text" id="q1" name="q1" />
+      </div>
+
+      <div class="question">
+        <label for="q2">2. What is their common hobby?</label>
+        <input type="text" id="q2" name="q2" />
+      </div>
+
+      <div class="question">
+        <label for="q3"
+          >3. What classes did John and Mary take (any one)?</label
+        >
+        <input type="text" id="q3" name="q3" />
+      </div>
+
+      <div class="question">
+        <label for="q4">4. How frequently does John volunteer?</label>
+        <input type="text" id="q4" name="q4" />
+      </div>
+
+      <div class="question">
+        <label for="q5">5. How frequently does Mary volunteer?</label>
+        <input type="text" id="q5" name="q5" />
+      </div>
+
+      <div class="question">
+        <label for="q6">6. Who studies Marine Ecology?</label>
+        <input type="text" id="q6" name="q6" />
+      </div>
+
+      <div class="question">
+        <label for="q7">7. Who wants to study corals?</label>
+        <input type="text" id="q7" name="q7" />
+      </div>
+
+      <div class="question">
+        <label for="q8">8. Where does Mary volunteer?</label>
+        <input type="text" id="q8" name="q8" />
+      </div>
+
+      <div class="question">
+        <label for="q9"
+          >9. Where does John want to climb after graduation?</label
+        >
+        <input type="text" id="q9" name="q9" />
+      </div>
+
+      <div class="question">
+        <label for="q10"
+          >10. What is the relationship between John and Mary?</label
+        >
+        <input type="text" id="q10" name="q10" />
+      </div>
+
+      <button onclick="checkAnswers()">Submit</button>
+
+      <p class="instruction">
+        If your scores have improved, good job! This method might be right for
+        you. Happy memorising! <br />
+        If not, you should go back to the homepage and explore our other
+        methods. Hope you find the one most suitable for your needs!
+      </p>
+
+      <script>
+        function checkAnswers() {
+          var answers = {
+            q1: ["university", "college", "class", "lesson"],
+            q2: ["hiking", "hike", "hikes"],
+            q3: [
+              "the ethics of conservation",
+              "ethics of conservation",
+              "climate change as pre-mass extinction"
+            ],
+            q4: ["every month", "monthly"],
+            q5: ["every week", "weekly"],
+            q6: ["mary"],
+            q7: ["mary"],
+            q8: ["elderly home", "old folks home"],
+            q9: ["mount everest", "mounteverest", "mount-everest"],
+            q10: ["friends", "friend"]
+          };
+
+          var score = 0;
+
+          for (var i = 1; i <= 10; i++) {
+            var userAnswer = document
+              .getElementById("q" + i)
+              .value.toLowerCase();
+            var expectedKeywords = answers["q" + i];
+
+            var isCorrect = expectedKeywords.some(function (keyword) {
+              return userAnswer.includes(keyword);
+            });
+
+            var feedback = isCorrect
+              ? "Correct!"
+              : "Expected keyword(s): " + expectedKeywords.join(", ");
+
+            var answerElement = document.getElementById("q" + i);
+            answerElement.classList.remove("correct-answer", "wrong-answer");
+            answerElement.classList.add(
+              isCorrect ? "correct-answer" : "wrong-answer"
+            );
+
+            var feedbackElement = document.createElement("span");
+            feedbackElement.textContent = feedback;
+            feedbackElement.classList.add("keyword");
+
+            answerElement.parentNode.appendChild(feedbackElement);
+
+            if (isCorrect) {
+              score++;
+            }
+          }
+
+          var scoreElement = document.createElement("p");
+          scoreElement.textContent = "Score: " + score + "/10";
+          scoreElement.style.fontWeight = "bold";
+          scoreElement.style.marginLeft = "50px";
+          document.body.appendChild(scoreElement);
+        }
+      </script>
+
+      <a href="../../index.html" class="method__button">Back to Home</a>
+      <!-- <button class="method__button" id="nextButton">Next</button> -->
+    </div>
+  </body>
+</html>
