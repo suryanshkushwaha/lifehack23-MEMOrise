@@ -48,117 +48,86 @@
         <div class="method__display-container">
                     <ul>
                         <li>
-                            <span>Mary</span>
-                        </li>
-                        <li>
-                            woke up late
+                            Mary woke up late today
                         </li>
                         <img src="images\woke_up.jpg" alt="" height="70px">
                         <li>
-                            <span>today but she had a</span>
-                        <li>
-                            <span>long list of tasks</span>
+                            but she had a long list of tasks to do for the day.  
                         </li>
                         <img src="images\long_list_of_tasks.jpg" alt="" height="60px">
                         <li>
-                            <span>to do for the day. She had to bring her</span>
-                        </li>
-                        <li>
-                            <span>dog, Rudd,</span>
+                            She had to bring her dog, Rudd,  
                         </li>
                         <img src="images\dog.jpg" alt="" height="60px">
                         <li>
-                            <span>to the vet,</span>
+                            to the vet,  
                         </li>
                         <img src="images\vet.jpg" alt="" height="60px">
                         <li>
-                            <span>go shopping</span>
+                            go shopping  
                         </li>
                         <img src="images\shopping.jpg" alt="" height="60px">
                         <li>
-                            <span>and then meet her friend,</span>
+                            and then meet her friend, Sally. 
                         </li>
                         <img src="images\meet_friend.jpg" alt="" height="60px">
                         <li>
-                            <span>Sally. Her dog was feeling scared of the vet so Mary had to pretend they were</span>
-                        </li>
-                        <li>
-                            <span>going to the dog park.</span>
+                            Her dog was feeling scared of the vet so Mary had to pretend they were going to the dog park.  
                         </li>
                         <img src="images\dog_park.jpg" alt="" height="60px">
                         <li>
-                            <span>She brought over Rudd’s</span>
-                        </li>
-                        <li>
-                            <span>favourite stuffed toy, the mouse called Sam.</span>
+                            She brought over Rudd’s favourite stuffed toy, the mouse called Sam.  
                         </li>
                         <img src="images\stuffed_mouse.jpg" alt="" height="60px">
                         <li>
-                            <span>Rudd never leaves anywhere without it. They</span>
-                        </li>
-                        <li>
-                            <span>went by car</span>
+                            Rudd never leaves anywhere without it. They went by car  
                         </li>
                         <img src="images\went_by_car.jpg" alt="" height="60px">
                         <li>
-                            <span>so they reached the vet in five minutes. Unfortunately, Rudd had</span>
-                        </li>
-                        <li>
-                            <span>ticks.</span>
+                            so they reached the vet in five minutes. Unfortunately, Rudd had ticks.  
                         </li>
                         <img src="images\ticks.jpg" alt="" height="60px">
                         <li>
-                            <span>Then Mary had to buy a</span>
-                        </li>
-                        <li>
-                            <span>mango, a toothbrush and a T-shirt</span>
+                            Then Mary had to buy a mango, a toothbrush and a T-shirt  
                         </li>
                         <img src="images\mango_toothbrush_tshirt.jpg" alt="" height="60px">
                         <li>
-                            <span>at the nearest supermarket to her house. She rushed in,</span>
+                            at the nearest supermarket to her house. She rushed in,  
                         </li>
                         <li>
-                            <span>took a basket,</span>
+                            took a basket,  
                         </li>
                         <img src="images\basket.jpg" alt="" height="60px">
                         <li>
-                            <span>
-                                found her items
-                            </span>
+                            found her items
                         </li>
                         <img src="images\found_her_items.jpg" alt="" height="60px">
                         <li>
-                            <span>and paid</span>
+                            and paid  
                         </li>
                         <img src="images\paid.jpg" alt="" height="60px">
                         <li>
-                            <span>for them all. She was able to meet her friend</span>
+                            for them all. She was able to meet her friend  
                         </li>
                         <img src="images\meet_friend.jpg" alt="" height="60px">
                         <li>
-                            <span>on time.</span>
+                            on time.  
                         </li>
                         <img src="images\on_time.jpg" alt="" height="60px">
                         <li>
-                            <span>They had</span>
-                        </li>
-                        <li>
-                            <span>lunch, watched a movie and finally settled down for dinner.</span>
+                            They had lunch, watched a movie and finally settled down for dinner.  
                         </li>
                         <img src="images\lunch_movie.jpg" alt="" height="60px">
                         <li>
-                            <span>Three other girls joined them at night for a sleepover.</span>
+                            Three other girls joined them at night for a sleepover.  
                         </li>  
                         <img src="images\three_sleepover.jpg" alt="" height="60px">
                         <li>
-                            <span>They spent the entire night</span>
-                        </li>
-                        <li>
-                            <span>talking about movies and food.</span>
+                            They spent the entire night talking about movies and food.  
                         </li>
                         <img src="images\movies_food.jpg" alt="" height="60px">
                         <li>
-                            <span>Overall, Mary had a wonderful day.</span>
+                            Overall, Mary had a wonderful day.  
                         </li>
                     </ul>   
                     
@@ -173,44 +142,40 @@
                     <h2 class="method__subtitle">How to Use This on Other Learning Materials?</h2>
                     <p>Find images of: actions, new characters and relationships, emotions and important nouns. </p>
             
-
-                    <p style="margin-top: 30px;">Click next to take a 10 minute break and come back to answer a few questions to test your memory!</p>
-
-                <div id="overlay">
-                    <div id="timer"></div>
+                    <p style="margin-top: 30px;">Click next to take a 10 minute break and come back to answer a few more questions to test your memory!</p>
+                    <div id="overlay">
+                        <div id="timer"></div>
+                    </div>
+                    <button class="method__button" id="nextButton">Next</button>
                 </div>
-
-          <button class="method__button" id="nextButton">Next</button>
-        </div>
-
-        <script>
-            document.getElementById("nextButton").addEventListener("click", function() {
-                var minutes = 10;
-                var seconds = minutes * 60;
-    
-                // Show the overlay screen
-                document.getElementById("overlay").style.display = "flex";
-    
-                var countdown = setInterval(function() {
-                    var minutesDisplay = Math.floor(seconds / 60);
-                    var secondsDisplay = seconds % 60;
-    
-                    // Display the remaining time to the user
-                    document.getElementById("timer").textContent = minutesDisplay + ":" + (secondsDisplay < 10 ? "0" : "") + secondsDisplay;
-    
-                    if (seconds == 0) {
-                        // Timer has ended, perform any necessary actions here
-                        clearInterval(countdown);
-                        alert("Time's up!");
-                        // Hide the overlay screen
-                        document.getElementById("overlay").style.display = "none";
-                    }
-    
-                    seconds--;
-                }, 1000);
-            });
-        </script>
-
+            
+                <script>
+                    document.getElementById("nextButton").addEventListener("click", function() {
+                        var minutes = 10;
+                        var seconds = minutes * 60;
+            
+                        // Show the overlay screen
+                        document.getElementById("overlay").style.display = "flex";
+            
+                        var countdown = setInterval(function() {
+                            var minutesDisplay = Math.floor(seconds / 60);
+                            var secondsDisplay = seconds % 60;
+            
+                            // Display the remaining time to the user
+                            document.getElementById("timer").textContent = minutesDisplay + ":" + (secondsDisplay < 10 ? "0" : "") + secondsDisplay;
+            
+                            if (seconds == 0) {
+                                // Timer has ended, perform any necessary actions here
+                                clearInterval(countdown);
+                                alert("Time's up!");
+                                // Hide the overlay screen
+                                document.getElementById("overlay").style.display = "none";
+                            }
+            
+                            seconds--;
+                        }, 1000);
+                    });
+                </script>
     </body>
 
 </html>
