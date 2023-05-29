@@ -1,0 +1,260 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+
+    /* HSL Color Mode */
+    --skin-color: #00aac1;
+    --text-color: #783d52;
+    --title-color: #7e3837;
+    --box-color: #91e7f2;
+    --body-color: #ffffff;
+
+    /*===== Font and Typography =====*/
+    --body-font: 'Poppins', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --biggest-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+
+    /*===== Font Weight =====*/
+    --font-medium: 500;
+    --font-bold: 600;
+
+    /*===== Margenes Bottom =====*/
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*===== Z Index =====*/
+    --z-fixed: 10;
+    --z-modal: 100;
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 1024px) {
+    :root {
+        --biggest-font-size: 2rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1.125rem;
+        --normal-font-size: .938rem;
+        --small-font-size: .813rem;
+        --smaller-font-size: .75rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+body,
+button,
+input {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+
+}
+
+h1, h2, h3 {
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/*
+img {
+    max-width: 100%;
+    height: auto;
+}*/
+
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    display: grid;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+    padding: 6.5rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    text-align: center;
+    margin-bottom: var(--mb-3);
+}
+
+.section__title::before {
+    content: attr(data-heading);
+    display: block;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--skin-color);
+}
+
+/* Active Modal*/
+.active-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+a {
+  text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+
+
+/*===== method Section =====*/
+
+.method__title {
+    text-align: center;
+    margin-top: var(--mb-1);
+    margin-bottom: var(--mb-0-25);
+}
+
+.method__describe-title {
+    text-align: center;
+    margin-bottom: var(--mb-0-3);
+}
+
+.method__display-container {
+    margin:20px 50px 20px 50px;
+}
+
+.method__subtitle {
+    color: var(--title-color);
+    text-align: left;
+    margin-top: var(--mb-1-5);
+    margin-bottom: var(--mb-0-75);
+}
+
+
+.method__passage-content {
+    color: var(--text-color);
+    background-color: #e3e3e3;
+    font-size: var(--normal-font-size);
+    align-items: left;
+    border-style: solid;
+    border-color: var(--title-color);
+    padding:30px 10px 30px 10px;
+}
+
+.method__button {
+    float: right;
+    margin-top: var(--mb-3);
+    color: var(--text-color);
+    background-color: var(--box-color);
+    padding:15px 15px 15px 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+dt {
+    margin-top: var(--mb-0-5);
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    font-size: var(--normal-font-size);
+}
+
+.question {
+    margin-bottom: 10px;
+}
+
+.question label {
+    display: block;
+    font-weight: var(--font-bold);
+}
+
+input {
+    border: 1px solid #472b2b;
+}
+
+.keyword {
+    font-style: italic;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.wrong-answer {
+    color: red;
+}
+.next-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #00aac1;
+    color: #783d52;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+#timer {
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+}
+
