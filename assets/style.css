@@ -3,13 +3,14 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
+    --hue-color: 242;
 
     /* HSL Color Mode */
-    --skin-color: #00aac1;
-    --text-color: #783d52;
-    --title-color: #7e3837;
-    --box-color: #91e7f2;
-    --body-color: #ffffff;
+    --skin-color: hsl(180, 100%, 50%);
+    --title-color: white;
+    --text-color: hsl(var(--hue-color), 8%, 85%);
+    --body-color: hsl(var(--hue-color), 19%, 5%);
+    --box-color: hsl(var(--hue-color), 14%, 10%);
 
     /*===== Font and Typography =====*/
     --body-font: 'Poppins', sans-serif;
@@ -64,7 +65,6 @@
 
 html {
     scroll-behavior: smooth;
-
 }
 
 body,
@@ -77,7 +77,6 @@ input {
 body {
     background-color: var(--body-color);
     color: var(--text-color);
-
 }
 
 h1, h2, h3 {
@@ -145,7 +144,7 @@ input {
     column-gap: 1.8rem;
 }
 
-.type__content {
+.type {
     position: relative;
     background-color: var(--box-color);
     padding: 6rem 0 2rem 2.5rem;
@@ -160,7 +159,7 @@ input {
 }
 
 .type__title {
-    font-size: var(--skin-color);
+    font-size: var(--h3-font-size);
     margin-bottom: var(--mb-1);
     font-weight: var(--font-medium);
 }
@@ -216,6 +215,16 @@ input {
     color: var(--skin-color);
     cursor: pointer;
 }
+
+.type__modal-button {
+    font-size: 0.8rem;
+    color: var(--skin-color);
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .type__modal-title,
 .type__modal-description {
