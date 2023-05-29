@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question Set One</title>
+        <style> 
+
+            .question {
+                margin-bottom: 10px;
+            }
+
+            .question label {
+                display: block;
+                font-weight: bold;
+            }
+
+            .keyword {
+                font-style: italic;
+            }
+
+            .correct-answer {
+                color: green;
+            }
+
+            .wrong-answer {
+                color: red;
+            }
+            .next-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background-color: #00aac1;
+                color: #783d52;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 999;
+            }
+            #timer {
+                font-size: 60px;
+                color: #fff;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Question Set One</h1>
+
+        <p>Try to use the exact wording from the passage if possible.</p>
+
+        <div class="question">
+            <label for="q1">1. What was Mary’s second task of the day?</label>
+            <input type="text" id="q1" name="q1">
+        </div>
+
+        <div class="question">
+            <label for="q2">2. Who did Mary have to bring to the vet?</label>
+            <input type="text" id="q2" name="q2">
+        </div>
+
+        <div class="question">
+            <label for="q3">3. What did Mary pretend they were going to when taking her dog to the vet?</label>
+            <input type="text" id="q3" name="q3">
+        </div>
+
+        <div class="question">
+            <label for="q4">4. How did Mary and her pet reach the vet?</label>
+            <input type="text" id="q4" name="q4">
+        </div>
+
+        <div class="question">
+            <label for="q5">5. What is one thing Mary bought at the supermarket? [Bonus to test yourself: What are all the things Mary bought?]</label>
+            <input type="text" id="q5" name="q5">
+        </div>
+
+        <div class="question">
+            <label for="q6">6. Who did Mary meet after the supermarket?</label>
+            <input type="text" id="q6" name="q6">
+        </div>
+
+        <div class="question">
+            <label for="q7">7. What did Mary do after finding her items for the shopping trip?</label>
+            <input type="text" id="q7" name="q7">
+        </div>
+
+        <div class="question">
+            <label for="q8">8. Did the girls a.Watch the movie first then eat dinner or b.Eat dinner first then watch the movie? Write a or b.</label>
+            <input type="text" id="q8" name="q8">
+        </div>
+
+        <div class="question">
+            <label for="q9">9. Did the girls spend the night talking about comics?</label>
+            <input type="text" id="q9" name="q9">
+        </div>
+
+        <div class="question">
+            <label for="q10">10. How would you describe Mary’s overall day?</label>
+            <input type="text" id="q10" name="q10">
+        </div>
+
+        <button onclick="checkAnswers()">Submit</button>
+
+        <p>Click next to start a twenty minute timer before we test your memory again with a different set of questions.</p>
+
+        <script>
+            function checkAnswers() {
+                var answers = {
+                    q1: ["shop", "buy"],
+                    q2: ["rudd", "dog"],
+                    q3: ["dog park", "park"],
+                    q4: ["car"],
+                    q5: ["mango", "toothbrush", "shirt"],
+                    q6: ["sally", "friend"],
+                    q7: ["paid", "pay"],
+                    q8: ["a"],
+                    q9: ["no"],
+                    q10: ["wonderful"]
+                };
+
+                var score = 0;
+
+                for (var i = 1; i <= 10; i++) {
+                    var userAnswer = document.getElementById("q" + i).value.toLowerCase();
+                    var expectedKeywords = answers["q" + i];
+
+                    var isCorrect = expectedKeywords.some(function(keyword) {
+                        return userAnswer.includes(keyword);
+                    });
+
+                    var feedback = isCorrect ? "Correct!" : "Expected keyword(s): " + expectedKeywords.join(", ");
+
+                    var answerElement = document.getElementById("q" + i);
+                    answerElement.classList.remove("correct-answer", "wrong-answer");
+                    answerElement.classList.add(isCorrect ? "correct-answer" : "wrong-answer");
+
+                    var feedbackElement = document.createElement("span");
+                    feedbackElement.textContent = feedback;
+                    feedbackElement.classList.add("keyword");
+
+                    answerElement.parentNode.appendChild(feedbackElement);
+
+                    if (isCorrect) {
+                        score++;
+                    }
+                }
+
+                var scoreElement = document.createElement("p");
+                scoreElement.textContent = "Score: " + score + "/10";
+                scoreElement.style.fontWeight = "bold";
+                document.body.appendChild(scoreElement);
+            }
+        </script>
+
+        <div id="overlay">
+            <div id="timer"></div>
+        </div>
+
+        <button class="next-button" id="nextButton">Next</button>
+
+        <script>
+            document.getElementById("nextButton").addEventListener("click", function() {
+                var minutes = 20;
+                var seconds = minutes * 60;
+    
+                // Show the overlay screen
+                document.getElementById("overlay").style.display = "flex";
+    
+                var countdown = setInterval(function() {
+                    var minutesDisplay = Math.floor(seconds / 60);
+                    var secondsDisplay = seconds % 60;
+    
+                    // Display the remaining time to the user
+                    document.getElementById("timer").textContent = minutesDisplay + ":" + (secondsDisplay < 10 ? "0" : "") + secondsDisplay;
+    
+                    if (seconds == 0) {
+                        // Timer has ended, perform any necessary actions here
+                        clearInterval(countdown);
+                        alert("Time's up!");
+                        // Hide the overlay screen
+                        document.getElementById("overlay").style.display = "none";
+                    }
+    
+                    seconds--;
+                }, 1000);
+            });
+        </script>
+
+    </body>
+</html>

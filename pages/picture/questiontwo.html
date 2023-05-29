@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question Set Two</title>
+        <style> 
+
+            .question {
+                margin-bottom: 10px;
+            }
+
+            .question label {
+                display: block;
+                font-weight: bold;
+            }
+
+            .keyword {
+                font-style: italic;
+            }
+
+            .correct-answer {
+                color: green;
+            }
+
+            .wrong-answer {
+                color: red;
+            }
+            .back-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background-color: #00aac1;
+                color: #783d52;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Question Set Two</h1>
+
+        <p>Try to use the exact wording from the passage if possible.</p>
+
+        <div class="question">
+            <label for="q1">1. Did Mary wake up early, on time or late?</label>
+            <input type="text" id="q1" name="q1">
+        </div>
+
+        <div class="question">
+            <label for="q2">2. What was Mary’s first task of the day?</label>
+            <input type="text" id="q2" name="q2">
+        </div>
+
+        <div class="question">
+            <label for="q3">3. What is Mary’s pet’s favourite toy?</label>
+            <input type="text" id="q3" name="q3">
+        </div>
+
+        <div class="question">
+            <label for="q4">4. What was Rudd’s medical condition?</label>
+            <input type="text" id="q4" name="q4">
+        </div>
+
+        <div class="question">
+            <label for="q5">5. What was the second item Mary needed to buy?</label>
+            <input type="text" id="q5" name="q5">
+        </div>
+
+        <div class="question">
+            <label for="q6">6. How many items did Mary have to buy at the supermarket?</label>
+            <input type="text" id="q6" name="q6">
+        </div>
+
+        <div class="question">
+            <label for="q7">7. What did Mary do after taking the basket?</label>
+            <input type="text" id="q7" name="q7">
+        </div>
+
+        <div class="question">
+            <label for="q8">8. What is one thing Mary and her friend did without the rest of the girls? [Bonus to test yourself: What are all three things they did without the rest of the girls?]</label>
+            <input type="text" id="q8" name="q8">
+        </div>
+
+        <div class="question">
+            <label for="q9">9. How many girls joined Mary and Sally later?</label>
+            <input type="text" id="q9" name="q9">
+        </div>
+
+        <div class="question">
+            <label for="q10">10. What is one of the topics they talked about at night? [Bonus to test yourself: What were both topics they talked about at night?]</label>
+            <input type="text" id="q10" name="q10">
+        </div>
+
+        <button onclick="checkAnswers()">Submit</button>
+
+        <p>If your scores have improved, good job! This method might be right for you. Happy memorising!
+            <br> If not, you should go back to the homepage and explore our other methods. Hope you find the one most suitable for your needs!
+        </p>
+
+        <script>
+            function checkAnswers() {
+                var answers = {
+                    q1: ["late"],
+                    q2: ["dog", "vet"],
+                    q3: ["sam", "stuffed mouse"],
+                    q4: ["tick"],
+                    q5: ["toothbrush"],
+                    q6: ["3", "three"],
+                    q7: ["found", "find"],
+                    q8: ["lunch", "movie", "dinner"],
+                    q9: ["three", "3"],
+                    q10: ["movies", "food"]
+                };
+
+                var score = 0;
+
+                for (var i = 1; i <= 10; i++) {
+                    var userAnswer = document.getElementById("q" + i).value.toLowerCase();
+                    var expectedKeywords = answers["q" + i];
+
+                    var isCorrect = expectedKeywords.some(function(keyword) {
+                        return userAnswer.includes(keyword);
+                    });
+
+                    var feedback = isCorrect ? "Correct!" : "Expected keyword(s): " + expectedKeywords.join(", ");
+
+                    var answerElement = document.getElementById("q" + i);
+                    answerElement.classList.remove("correct-answer", "wrong-answer");
+                    answerElement.classList.add(isCorrect ? "correct-answer" : "wrong-answer");
+
+                    var feedbackElement = document.createElement("span");
+                    feedbackElement.textContent = feedback;
+                    feedbackElement.classList.add("keyword");
+
+                    answerElement.parentNode.appendChild(feedbackElement);
+
+                    if (isCorrect) {
+                        score++;
+                    }
+                }
+
+                var scoreElement = document.createElement("p");
+                scoreElement.textContent = "Score: " + score + "/10";
+                scoreElement.style.fontWeight = "bold";
+                document.body.appendChild(scoreElement);
+            }
+        </script>
+
+
+        <button class="back-button">Back to Home</button>
+
+    </body>
+</html>
