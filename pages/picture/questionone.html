@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Question Set One</title>
+        <!--========== MAIN CSS ==========-->
+        <link rel="stylesheet" href="../method_style.css">
+        <!--
         <style> 
 
             .question {
@@ -39,115 +42,123 @@
                 font-size: 16px;
                 cursor: pointer;
             }
-        </style>
+        </style> -->
     </head>
     <body>
-        <h1 class="method__title">Question Set One</h1>
-        <p class="method__describe-title">Try to use the exact wording from the passage if possible.</p>
-        <div class="question">
-            <label for="q1">1. What was Mary’s second task of the day?</label>
-            <input type="text" id="q1" name="q1">
-        </div>
-
-        <div class="question">
-            <label for="q2">2. Who did Mary have to bring to the vet?</label>
-            <input type="text" id="q2" name="q2">
-        </div>
-
-        <div class="question">
-            <label for="q3">3. What did Mary pretend they were going to when taking her dog to the vet?</label>
-            <input type="text" id="q3" name="q3">
-        </div>
-
-        <div class="question">
-            <label for="q4">4. How did Mary and her pet reach the vet?</label>
-            <input type="text" id="q4" name="q4">
-        </div>
-
-        <div class="question">
-            <label for="q5">5. What is one thing Mary bought at the supermarket? [Bonus to test yourself: What are all the things Mary bought?]</label>
-            <input type="text" id="q5" name="q5">
-        </div>
-
-        <div class="question">
-            <label for="q6">6. Who did Mary meet after the supermarket?</label>
-            <input type="text" id="q6" name="q6">
-        </div>
-
-        <div class="question">
-            <label for="q7">7. What did Mary do after finding her items for the shopping trip?</label>
-            <input type="text" id="q7" name="q7">
-        </div>
-
-        <div class="question">
-            <label for="q8">8. Did the girls a.Watch the movie first then eat dinner or b.Eat dinner first then watch the movie? Write a or b.</label>
-            <input type="text" id="q8" name="q8">
-        </div>
-
-        <div class="question">
-            <label for="q9">9. Did the girls spend the night talking about comics?</label>
-            <input type="text" id="q9" name="q9">
-        </div>
-
-        <div class="question">
-            <label for="q10">10. How would you describe Mary’s overall day?</label>
-            <input type="text" id="q10" name="q10">
-        </div>
-
-        <button onclick="checkAnswers()">Submit</button>
-
-        <p style="margin-top: 30px;">Click next to try memorising using the Visualize method.</p>
-
-        <script>
-            function checkAnswers() {
-                var answers = {
-                    q1: ["shop", "buy"],
-                    q2: ["rudd", "dog"],
-                    q3: ["dog park", "park"],
-                    q4: ["car"],
-                    q5: ["mango", "toothbrush", "shirt"],
-                    q6: ["sally", "friend"],
-                    q7: ["paid", "pay"],
-                    q8: ["a"],
-                    q9: ["no"],
-                    q10: ["wonderful"]
-                };
-
-                var score = 0;
-
-                for (var i = 1; i <= 10; i++) {
-                    var userAnswer = document.getElementById("q" + i).value.toLowerCase();
-                    var expectedKeywords = answers["q" + i];
-
-                    var isCorrect = expectedKeywords.some(function(keyword) {
-                        return userAnswer.includes(keyword);
-                    });
-
-                    var feedback = isCorrect ? "Correct!" : "Expected keyword(s): " + expectedKeywords.join(", ");
-
-                    var answerElement = document.getElementById("q" + i);
-                    answerElement.classList.remove("correct-answer", "wrong-answer");
-                    answerElement.classList.add(isCorrect ? "correct-answer" : "wrong-answer");
-
-                    var feedbackElement = document.createElement("span");
-                    feedbackElement.textContent = feedback;
-                    feedbackElement.classList.add("keyword");
-
-                    answerElement.parentNode.appendChild(feedbackElement);
-
-                    if (isCorrect) {
-                        score++;
-                    }
-                }
-
-                var scoreElement = document.createElement("p");
-                scoreElement.textContent = "Score: " + score + "/10";
-                scoreElement.style.fontWeight = "bold";
-                document.body.appendChild(scoreElement);
-            }
-        </script>
+        <h1 class="method__title">Visualize Method</h1>
+        <p class="method__describe-title">Using this method you'll learn how visualizing the texts can help you to memorise the content.</p>
         
-        <a href="passage.html" class="next-button" id="nextButton">Next</a>
+        <div class="method__display-container">
+            <h2 class="method__subtitle">Question Set One</h2>
+            <p style="margin-bottom:30px">Try to use the exact wording from the passage if possible.</p>
+            <div class="question">
+                <label for="q1">1. What was Mary’s second task of the day?</label>
+                <input type="text" id="q1" name="q1">
+            </div>
+    
+            <div class="question">
+                <label for="q2">2. Who did Mary have to bring to the vet?</label>
+                <input type="text" id="q2" name="q2">
+            </div>
+    
+            <div class="question">
+                <label for="q3">3. What did Mary pretend they were going to when taking her dog to the vet?</label>
+                <input type="text" id="q3" name="q3">
+            </div>
+    
+            <div class="question">
+                <label for="q4">4. How did Mary and her pet reach the vet?</label>
+                <input type="text" id="q4" name="q4">
+            </div>
+    
+            <div class="question">
+                <label for="q5">5. What is one thing Mary bought at the supermarket? [Bonus to test yourself: What are all the things Mary bought?]</label>
+                <input type="text" id="q5" name="q5">
+            </div>
+    
+            <div class="question">
+                <label for="q6">6. Who did Mary meet after the supermarket?</label>
+                <input type="text" id="q6" name="q6">
+            </div>
+    
+            <div class="question">
+                <label for="q7">7. What did Mary do after finding her items for the shopping trip?</label>
+                <input type="text" id="q7" name="q7">
+            </div>
+    
+            <div class="question">
+                <label for="q8">8. Did the girls a.Watch the movie first then eat dinner or b.Eat dinner first then watch the movie? Write a or b.</label>
+                <input type="text" id="q8" name="q8">
+            </div>
+    
+            <div class="question">
+                <label for="q9">9. Did the girls spend the night talking about comics?</label>
+                <input type="text" id="q9" name="q9">
+            </div>
+    
+            <div class="question">
+                <label for="q10">10. How would you describe Mary’s overall day?</label>
+                <input type="text" id="q10" name="q10">
+            </div>
+    
+            <button onclick="checkAnswers()">Submit</button>
+    
+            <p class="instruction">Click "Learn" to try memorising using the Visualize method.</p>
+    
+            <script>
+                function checkAnswers() {
+                    var answers = {
+                        q1: ["shop", "buy"],
+                        q2: ["rudd", "dog"],
+                        q3: ["dog park", "park"],
+                        q4: ["car"],
+                        q5: ["mango", "toothbrush", "shirt"],
+                        q6: ["sally", "friend"],
+                        q7: ["paid", "pay"],
+                        q8: ["a"],
+                        q9: ["no"],
+                        q10: ["wonderful"]
+                    };
+    
+                    var score = 0;
+    
+                    for (var i = 1; i <= 10; i++) {
+                        var userAnswer = document.getElementById("q" + i).value.toLowerCase();
+                        var expectedKeywords = answers["q" + i];
+    
+                        var isCorrect = expectedKeywords.some(function(keyword) {
+                            return userAnswer.includes(keyword);
+                        });
+    
+                        var feedback = isCorrect ? "Correct!" : "Expected keyword(s): " + expectedKeywords.join(", ");
+    
+                        var answerElement = document.getElementById("q" + i);
+                        answerElement.classList.remove("correct-answer", "wrong-answer");
+                        answerElement.classList.add(isCorrect ? "correct-answer" : "wrong-answer");
+    
+                        var feedbackElement = document.createElement("span");
+                        feedbackElement.textContent = feedback;
+                        feedbackElement.classList.add("keyword");
+    
+                        answerElement.parentNode.appendChild(feedbackElement);
+    
+                        if (isCorrect) {
+                            score++;
+                        }
+                    }
+    
+                    var scoreElement = document.createElement("p");
+                    scoreElement.textContent = "Score: " + score + "/10";
+                    scoreElement.style.fontWeight = "bold";
+                    scoreElement.style.marginLeft = "50px";
+                    document.body.appendChild(scoreElement);
+                }
+            </script>
+            
+            <a href="passage.html" class="method-button" id="nextButton">Learn</a>
+    
 
+        </div>
+        
     </body>
 </html>
