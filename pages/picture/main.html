@@ -58,7 +58,7 @@
         <div id="overlay">
             <div id="timer"></div>
         </div>
-        <button class="method__button" id="nextButton">Next</button>
+        <a href="#" class="method__button" id="nextButton">Next</a>
     </div>
 
     <script>
@@ -82,6 +82,8 @@
                     alert("Time's up!");
                     // Hide the overlay screen
                     document.getElementById("overlay").style.display = "none";
+                    // Redirect to the next page
+                    window.location.href = "questionone.html";
                 }
 
                 seconds--;
