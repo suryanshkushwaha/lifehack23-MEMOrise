@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highlighter Method</title>
+    <!--========== MAIN CSS ==========-->
+    <link rel="stylesheet" href="../method_style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highlighted Text</title>
-</head>
+  <body>
+    <h1 class="method__title">Highlighter Method</h1>
+    <p class="method__describe-title">
+      Know how putting the important points in a tabular method helps with
+      memorising.
+    </p>
 
-<body>
-    
-</body>
+    <div class="method__display-container">
+      <h2 class="method__subtitle">Passage</h2>
+      <p class="heading">Let's first try memorising without the method.</p>
+      <p class="method__passage-content">
+        Mary and John are very good friends in college. Mary is studying to
+        become a marine ecologist while John is studying meteorology. They met
+        in common classes such as "climate change as pre-mass extinction" and
+        "the ethics of conservation". They enjoy spending their time hiking,
+        John likes to climb mountains. They volunteer regularly. While John does
+        monthly cleanups at an animal shelter, Mary volunteers weekly at an old folks
+        home curating plants for the elderly. When they graduate, John wants to
+        climb mount-everest while Mary wants to spend time studying corals and
+        how farmers can utilise modern technology to improve the sustainability
+        of coral-farming.
+      </p>
+      <p class="after" style="margin-top: 30px;">
+        Click "Next" to take a 10 minute break and come back to answer a few
+        questions to test your memory!
+      </p>
+      <div id="overlay">
+        <div id="timer"></div>
+      </div>
 
+      <a href="#" class="method__button" id="nextButton">Next</a>
+
+      <!-- <button class="method__button" id="timerButton">Next</button> -->
+    </div>
+
+    <script>
+      document
+        .getElementById("nextButton")
+        .addEventListener("click", function () {
+          var minutes = 0;
+          var seconds = minutes * 60;
+
+          // Show the overlay screen
+          document.getElementById("overlay").style.display = "flex";
+
+          var countdown = setInterval(function () {
+            var minutesDisplay = Math.floor(seconds / 60);
+            var secondsDisplay = seconds % 60;
+
+            // Display the remaining time to the user
+            document.getElementById("timer").textContent =
+              minutesDisplay +
+              ":" +
+              (secondsDisplay < 10 ? "0" : "") +
+              secondsDisplay;
+
+            if (seconds == 0) {
+              // Timer has ended, perform any necessary actions here
+              clearInterval(countdown);
+              alert("Time's up!");
+              // Hide the overlay screen
+              document.getElementById("overlay").style.display = "none";
+              window.location.href = "highlighter_question_one.html";
+            }
+
+            seconds--;
+          }, 1000);
+        });
+    </script>
+  </body>
 </html>
